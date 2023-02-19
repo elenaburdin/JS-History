@@ -1,0 +1,188 @@
+:root {
+    --primary-color: #f7df1e;
+    --secondary-light-color: #fcf6bd;
+    --secondary-dark-color: #efcc06;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--secondary-light-color);
+    line-height: 1.4rem;
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+    padding-bottom: 40px;
+}
+
+
+/* Header */
+#header-title {
+    background: var(--primary-color);
+    padding: 3rem 0;
+}
+
+#header-title .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#header-title .container h1 {
+    font-size: 2.5rem;
+    padding-bottom: 1rem;
+}
+
+/* Timeline  */
+#timeline ul {
+    background: var(--secondary-light-colorr);
+    padding: 50px 0;
+}
+
+/* create a line */
+#timeline ul li {
+    list-style: none;
+    position: relative;
+    width: 6px;
+    background: #000;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+/* boxes */
+#timeline ul li div {
+    position: relative;
+    background: var(--primary-color);
+    bottom: 0;
+    width: 400px;
+    transition: all 0.4s ease-in-out;
+    border-radius: 10px;
+    padding: 1rem;
+    visibility: hidden;
+    opacity: 0;
+}
+
+/* right side */
+#timeline ul li:nth-child(odd) div {
+    left: 40px;
+    transform: translate(200px, 0);
+}
+
+/* left side */
+#timeline ul li:nth-child(even) div {
+    left: -434px;
+    transform: translate(-200px, 0);
+}
+
+/* Dots */
+#timeline ul li::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: inherit;
+    transform: translateX(-50%);
+    transition: background 0.5s ease-in-out;
+}
+
+
+/* arrows base */
+#timeline div::before {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+/* right side arrows */
+#timeline ul li:nth-child(odd) div::before {
+    left: -15px;
+    border-width: 8px 16px 8px 0;
+    border-color: transparent var(--primary-color) transparent transparent;
+}
+
+/* left side arrows */
+#timeline ul li:nth-child(even) div::before {
+    right: -15px;
+    border-width: 8px 0 8px 16px;
+    border-color: transparent transparent transparent var(--primary-color);
+}
+
+/* after adding main.js add this */
+/* Show Boxes */
+#timeline ul li.show div {
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+}
+
+/* for dots */
+#timeline ul li.show::after {
+    background: #000;
+}
+
+/* for heading */
+#timeline h3 {
+    padding-bottom: 0.8rem;
+}
+
+@media(max-width:900px) {
+    #timeline ul li div {
+        width: 250px;
+    }
+
+    #timeline ul li:nth-child(even) div {
+        left: -284px;
+    }
+}
+
+@media(max-width:600px) {
+    #timeline ul li {
+        margin-left: 20px;
+    }
+
+    #timeline ul li div {
+        width: calc(100vw - 90px);
+    }
+
+    #header-title .container {
+        margin: 0 auto;
+        padding: 0 25px;
+        text-align: center;
+    }
+}
+
+@media(max-width:600px) {
+    #timeline ul li {
+        margin-left: 20px;
+    }
+
+    #timeline ul li div {
+        width: calc(100vw - 90px);
+    }
+
+    #timeline ul li:nth-child(even) div {
+        left: 40px;
+    }
+
+    #timeline ul li:nth-child(even) div::before {
+        left: -45px;
+        border-width: 8px 16px 8px 0;
+        border-color: transparent var(--secondary-color) transparent transparent;
+    }
+
+    #header-title .container {
+        margin: 0 auto;
+        padding: 0 25px;
+        text-align: center;
+    }
+}
